@@ -1,20 +1,30 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Platform, StyleSheet, Text, View } from 'react-native';
+
+//importamos el componente PokemonScreen que se encargará de mostrar la pantalla de los workers
+import WorkersScreen from './src/screens/WorkersScreen';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+      <Text style={styles.title}>Mi aplicación consumiendo datos desde una API</Text>
+      <WorkersScreen /> 
+    </View> 
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight || 0 : 50,
+    backgroundColor: "#791010",
+  },
+  title: {
+    color: "#fff",
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 10,
+    padding: 20,
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight || 0 : 50,
   },
 });
