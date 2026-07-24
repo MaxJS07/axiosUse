@@ -1,22 +1,19 @@
 import React from "react";
-import { View, FlatList, StyleSheet, Text, Button } from "react-native";
+import { View, FlatList, Text } from "react-native";
 //importamos el componente CustomCard que se encargará de mostrar la información de cada empleado
 import CustomCard from "../components/CustomCard";
+import CustomDBCard from "../components/CustomDBCard";
 //importamos el hook useCustomData que se encargará de obtener la información de los empleados desde la API
-import useCustomData from "../hooks/useCustomData";
-import { stylesWorkersScreen, stylesApp } from "../styles/globalStyles";
+import useDBData from "../hooks/useDBData";
+import { stylesWorkersScreen } from "../styles/globalStyles";
 import CustomInput from "../components/CustomInput";
 
-const WorkersScreen = ({navigation}) => {
+const DragonBallScreen = () => {
   //utilizamos el hook useCustomData para obtener la información de los empleados y el estado de loading
-  const { workerData, loading, searchTerm, setSearchTerm } = useCustomData();
+  const { dbData, searchTermDb, setSearchTermDb } = useDBData();
 
   return (
-    
     <View style={stylesWorkersScreen.container}>
-
-      <Text style={stylesApp.title}>Mi aplicación consumiendo datos desde una API</Text>
-
       <Text style={stylesWorkersScreen.title}>Lista de empleados</Text>
 
       <Text style={stylesWorkersScreen.description}>
@@ -25,18 +22,16 @@ const WorkersScreen = ({navigation}) => {
         mediante un CustomCard que muestra su nombre, trabajo y fecha de inicio.
       </Text>
 
-      <CustomInput onChange={setSearchTerm} value={searchTerm}/>
+      <CustomInput onChange={setSearchTermDb} value={searchTermDb}/>
 
       <FlatList
-        data={workerData}
-        renderItem={({ item }) => <CustomCard worker={item} />}
+        data={dbData}
+        renderItem={({ item }) => <CustomDBCard character={item} />}
         keyExtractor={(item) => item.id.toString()}
       />
-
-      <Button title="Ir a dragon ball" onPress={() => navigation.navigate("Dragon Ball")} />
     </View>
   );
 };
 
-export default WorkersScreen;
+export default DragonBallScreen;
 

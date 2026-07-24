@@ -1,3 +1,5 @@
+import { StyleSheet, Platform, StatusBar  } from "react-native";
+
 export const stylesButton = StyleSheet.create({
   button: {
     backgroundColor: "#FFCB05",
@@ -49,3 +51,46 @@ export const stylesWorkersScreen = StyleSheet.create({
     fontWeight: "semibold",
   },
 });
+
+export const stylesCard = StyleSheet.create({
+  card: {
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    padding: 20,
+    marginBottom: 20,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  name: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 10,
+  },
+  work: {
+    fontSize: 16,
+
+    marginBottom: 5,
+  },
+  work_since: {
+    fontSize: 14,
+    color: "#666",
+  },
+});
+
+export const stylesInput = StyleSheet.create({
+  input: {
+    height: 40,
+    margin: 10,
+    borderWidth: 1,
+    padding: 10,
+    width: "100%",
+    marginLeft: 0,
+    backgroundColor:"white"
+  }
+})

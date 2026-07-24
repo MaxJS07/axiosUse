@@ -15,15 +15,15 @@ import { stylesCard } from "../styles/globalStyles";
 
 //recibimos worker como props, el cual será el objeto que contiene la información del empleado que queremos mostrar en la tarjeta
 
-const CustomCard = ({ worker }) => {
+const CustomDBCard = ({ character }) => {
   return (
     <View style={stylesCard.card}>
-      <Text style={stylesCard.name}>{worker.name}</Text>
-      <Text style={stylesCard.work}>{worker.work}</Text>
-      <Text style={stylesCard.work_since}>{worker.work_since}</Text>
+      <Text style={stylesCard.name}>{character.name}</Text>
+      <Text style={stylesCard.work}>{character.description}</Text>
+      <Text style={stylesCard.work_since}>Ki: {character.ki}</Text>
     </View>
   );
 };
 
-export default CustomCard;
+export default CustomDBCard;
 

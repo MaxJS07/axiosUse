@@ -9,4 +9,4 @@ const CustomButton = ({ onPress, title }) => {
     </TouchableOpacity>
   );
 };
-export default CustomButton;
+export default CustomButton; 
